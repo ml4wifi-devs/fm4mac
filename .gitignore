@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+.venv/
+.ruff_cache/
+.idea/
+.vscode/
+
+.hydra/
+outputs/
+wandb/
+examples/*/datasets/
+examples/*/results/
+examples/wlan_sim/validation/runs/

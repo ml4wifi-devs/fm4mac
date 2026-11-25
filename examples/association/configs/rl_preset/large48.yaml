@@ -1,0 +1,10 @@
+# @package _global_
+train:
+  eval:
+    n_steps: 8
+    top_ks: [1, 8]
+  rollout:
+    chunk_size: 8
+    sim_chunk_size: 256
+  nft:
+    accumulation: 64

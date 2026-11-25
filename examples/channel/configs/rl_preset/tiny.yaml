@@ -1,0 +1,17 @@
+# @package _global_
+name: rl_tiny
+n_steps: 2
+ckpt_freq: 1
+eval:
+  freq: 1
+  n_contexts: 2
+  n_samples: 8
+  n_repeats: 1
+  top_ks: [1, 8]
+rollout:
+  n_contexts: 4
+  n_groups: 2
+  group_size: 4
+  chunk_size: 8
+nft:
+  minibatch_size: 4

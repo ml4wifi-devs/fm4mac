@@ -1,0 +1,19 @@
+defaults:
+  - autoencoder
+  - _self_
+name: autoencoder_tiny
+train_paths: [datasets/tiny/random.pkl.lz4, datasets/tiny/h_mab.pkl.lz4]
+val_paths: [datasets/tiny/random_val.pkl.lz4]
+model:
+  embed_features: 8
+  encoder_features: [16, 8]
+  decoder_features: [8, 16]
+  latent_features: 4
+  n_layers: 1
+train:
+  n_steps: 20
+  batch_size: 8
+  val_steps: 2
+  val_freq: 10
+  log_freq: 5
+  ckpt_freq: 10

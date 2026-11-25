@@ -1,0 +1,39 @@
+name: rl_6
+flow_matching_path: runs/flow_matching
+surrogate_path: runs/surrogate
+deployments:
+- random/6
+n_steps: 300
+ckpt_freq: 50
+seed: 42
+eval:
+  freq: 10
+  seed: 42
+  n_contexts: 32
+  n_samples: 128
+  n_repeats: 5
+  top_ks:
+  - 1
+  - 8
+  - 32
+  - 128
+rollout:
+  n_contexts: 256
+  n_groups: 32
+  group_size: 16
+  chunk_size: 512
+  sim_chunk_size: 4096
+  gen_steps: 6
+nft:
+  learning_rate: 0.0001
+  beta: 1.0
+  adv_clip: 5.0
+  kl_coef: 0.0001
+  eta_rate: 0.001
+  eta_max: 0.5
+  n_epochs: 1
+  minibatch_size: 128
+  accumulation: 1
+surrogate:
+  learning_rate: 0.0003
+  n_epochs: 4

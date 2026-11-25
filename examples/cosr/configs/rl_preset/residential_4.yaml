@@ -1,0 +1,7 @@
+# @package _global_
+name: rl_residential_4
+scenario: residential/4
+train:
+  n_designated: 4
+eval:
+  refine_freq: 50

@@ -1,0 +1,21 @@
+# @package _global_
+name: rl_tiny
+scenario: residential/0
+flow_matching_path: runs/flow_matching_tiny
+surrogate_path: runs/surrogate_tiny
+train:
+  n_steps: 2
+  n_designated: 1
+  ckpt_freq: 1
+  rollout:
+    n_contexts: 4
+    n_groups: 2
+    group_size: 4
+  nft:
+    minibatch_size: 4
+eval:
+  freq: 1
+  n_contexts: 2
+  n_samples: 8
+  top_ks: [1, 4]
+  refine_top_k: 4

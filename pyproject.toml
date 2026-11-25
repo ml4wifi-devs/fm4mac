@@ -1,0 +1,66 @@
+[project]
+name = "fm4mac"
+version = "0.1.0"
+description = "Generative configuration of combinatorial Wi-Fi MAC problems with flow matching"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+authors = [
+  {name = "Maksymilian Wojnar", email = "maksymilian.wojnar@agh.edu.pl"}
+]
+
+requires-python = ">=3.12"
+dependencies = [
+    "cloudpickle~=3.1",
+    "flax~=0.12.0",
+    "grain~=0.2.13",
+    "jax~=0.8.0",
+    "jraph~=0.0.6.dev0",
+    "lz4~=4.4",
+    "numpy~=2.3",
+    "omegaconf~=2.3",
+    "optax~=0.2.6",
+    "orbax-checkpoint~=0.11.26",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "jax[cuda12]~=0.8.0",
+]
+examples = [
+    "hydra-core~=1.3.2",
+    "matplotlib~=3.10",
+    "scipy~=1.17",
+    "tqdm~=4.67",
+]
+cosr = [
+    "fm4mac[examples]",
+    "mapc-dcf~=0.2.6",
+    "mapc-mab@git+https://github.com/ml4wifi-devs/mapc-mab",
+    "mapc-optimal~=0.2.1",
+    "mapc-optimal-research@git+https://github.com/ml4wifi-devs/mapc-optimal-research",
+    "mapc-sim~=0.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8",
+]
+
+[tool.setuptools.packages.find]
+include = ["fm4mac*"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["examples/**/runs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E731", "E741"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

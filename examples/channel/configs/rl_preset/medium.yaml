@@ -1,0 +1,5 @@
+# @package _global_
+rollout:
+  chunk_size: 64
+nft:
+  accumulation: 8

@@ -1,0 +1,24 @@
+defaults:
+  - flow_matching
+  - _self_
+name: flow_matching_tiny
+autoencoder_path: runs/autoencoder_tiny
+train_paths: [datasets/tiny/h_mab.pkl.lz4]
+val_paths: [datasets/tiny/random_val.pkl.lz4]
+encoded_path: datasets/tiny/fm_train.pkl.lz4
+encoded_val_path: datasets/tiny/fm_val.pkl.lz4
+model:
+  gnn_layers: 1
+  dim: 8
+  ff_dim: 16
+  n_layers: 1
+  n_heads: 2
+  embed_features: 4
+train:
+  n_steps: 20
+  batch_size: 4
+  val_steps: 2
+  val_freq: 10
+  mmd_samples: 2
+  log_freq: 5
+  ckpt_freq: 10

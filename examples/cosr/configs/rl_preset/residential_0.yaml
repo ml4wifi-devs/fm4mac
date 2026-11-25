@@ -1,0 +1,12 @@
+# @package _global_
+name: rl_residential_0
+scenario: residential/0
+train:
+  n_steps: 1000
+  n_designated: 1
+  nft:
+    minibatch_size: 128
+eval:
+  freq: 20
+  coverage_ratio: 0.625
+  refine_freq: 50

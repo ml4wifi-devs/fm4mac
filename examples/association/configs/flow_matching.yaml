@@ -1,0 +1,36 @@
+defaults:
+  - _self_
+  - override hydra/job_logging: none
+  - override hydra/hydra_logging: none
+name: flow_matching
+dataset_path: datasets
+autoencoder_path: runs/autoencoder
+model:
+  gnn_layers: 3
+  dim: 72
+  ff_dim: 144
+  n_layers: 2
+  n_heads: 4
+  drop_rate: 0.1
+  embed_features: 32
+  dtype: float32
+optimizer:
+  learning_rate: 0.001
+  weight_decay: 0.01
+  b1: 0.95
+  b2: 0.95
+  grad_clip: 1.0
+train:
+  n_steps: 5000
+  max_edges: 2048
+  n_val_batches: 100
+  ema_decay: 0.999
+  val_batches: 10
+  val_freq: 100
+  log_freq: 20
+  ckpt_freq: 500
+  seed: 42
+hydra:
+  output_subdir: null
+  run:
+    dir: .

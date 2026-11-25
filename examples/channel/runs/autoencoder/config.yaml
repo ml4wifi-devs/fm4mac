@@ -1,0 +1,35 @@
+name: autoencoder
+dataset: datasets/train_*.pkl.lz4
+val_dataset: datasets/val_*.pkl.lz4
+model:
+  embed_features: 64
+  encoder_features:
+  - 128
+  - 64
+  decoder_features:
+  - 64
+  - 128
+  latent_features: 32
+  n_layers: 3
+  dtype: float64
+optimizer:
+  learning_rate: 5.0e-05
+  weight_decay: 0.01
+  b1: 0.95
+  b2: 0.95
+  grad_clip: 1.0
+train:
+  n_steps: 3000
+  batch_size: 128
+  loss_weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  kl_weight: 0.0003125
+  seed: 42
+  log_freq: 50
+  val_freq: 100
+  n_val_batches: 10
+  ckpt_freq: 500

@@ -1,0 +1,24 @@
+name: surrogate
+dataset: datasets/train_*.pkl.lz4
+val_dataset: datasets/val_*.pkl.lz4
+model:
+  gnn_layers: 3
+  dim: 64
+  ff_dim: 128
+  n_layers: 3
+  n_heads: 4
+  drop_rate: 0.2
+  dtype: float32
+optimizer:
+  learning_rate: 0.0015
+  weight_decay: 0.01
+  b1: 0.85
+  b2: 0.999
+  grad_clip: 1.0
+train:
+  n_steps: 6000
+  group_size: 32
+  rank_weight: 1.0
+  seed: 42
+  log_freq: 100
+  val_freq: 1000

@@ -1,0 +1,9 @@
+# @package _global_
+name: rl_residential_2
+scenario: residential/2
+train:
+  n_designated: 1
+  nft:
+    minibatch_size: 64
+eval:
+  refine_freq: 50

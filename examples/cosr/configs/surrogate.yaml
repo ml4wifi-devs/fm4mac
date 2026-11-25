@@ -1,0 +1,51 @@
+defaults:
+  - _self_
+  - override hydra/job_logging: none
+  - override hydra/hydra_logging: none
+name: surrogate
+data:
+  flow_matching_path: runs/flow_matching
+  train_paths:
+    - datasets/random.pkl.lz4
+    - datasets/h_mab.pkl.lz4
+    - datasets/f_optimal.pkl.lz4
+    - datasets/t_optimal.pkl.lz4
+  val_paths:
+    - datasets/random_val.pkl.lz4
+    - datasets/h_mab_val.pkl.lz4
+    - datasets/f_optimal_val.pkl.lz4
+    - datasets/t_optimal_val.pkl.lz4
+  train_path: datasets/surrogate_train.pkl.lz4
+  val_path: datasets/surrogate_val.pkl.lz4
+  n_networks: 1000
+  n_val_networks: 200
+  n_fm: 32
+  n_random: 16
+  n_perturb: 16
+  gen_steps: 6
+  seed: 42
+model:
+  gnn_layers: 3
+  dim: 64
+  ff_dim: 128
+  n_layers: 3
+  n_heads: 4
+  drop_rate: 0.1
+  dtype: float32
+optimizer:
+  learning_rate: 0.001
+  weight_decay: 0.01
+  b1: 0.9
+  b2: 0.999
+  grad_clip: 1.0
+train:
+  n_steps: 15000
+  rank_weight: 1.0
+  log_freq: 100
+  val_freq: 1000
+  ckpt_freq: 5000
+  seed: 42
+hydra:
+  output_subdir: null
+  run:
+    dir: .

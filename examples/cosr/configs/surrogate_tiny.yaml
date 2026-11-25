@@ -1,0 +1,26 @@
+defaults:
+  - surrogate
+  - _self_
+name: surrogate_tiny
+data:
+  flow_matching_path: runs/flow_matching_tiny
+  train_paths: [datasets/tiny/random.pkl.lz4]
+  val_paths: [datasets/tiny/random_val.pkl.lz4]
+  train_path: datasets/tiny/surrogate_train.pkl.lz4
+  val_path: datasets/tiny/surrogate_val.pkl.lz4
+  n_networks: 4
+  n_val_networks: 2
+  n_fm: 8
+  n_random: 4
+  n_perturb: 4
+model:
+  gnn_layers: 1
+  dim: 8
+  ff_dim: 16
+  n_layers: 1
+  n_heads: 2
+train:
+  n_steps: 20
+  log_freq: 5
+  val_freq: 10
+  ckpt_freq: 10
